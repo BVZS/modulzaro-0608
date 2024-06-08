@@ -40,8 +40,9 @@ public class Modulzaro_0608 {
     
     private static void adatszerkezetTomb() {
         tomb2Eloallito(3);
+        konzol(SEP + "Készítünk egy kétdimenziós mátrixot, aminek a főátlójában véletlenszerű számok vannak, mindenhol máshol nulla, majd megjelenítjük:");
         tomb2kiir(tomb2);
-        
+        konzol(SEP + "Egy invertáló metódus átalakít egy paraméterben kapott tömböt úgy, hogy a főátlóban található min és max értékek közötti számmal tölti fel, a főátlóba pedig csak nulla kerül. A kapott tömb így néz ki:");
         tomb2 = tomb2Invertalo(tomb2);
         tomb2kiir(tomb2);
     }
@@ -131,7 +132,7 @@ public class Modulzaro_0608 {
     
     
     public static void osszegzesBemutatasa() {
-        konzol("[Összegzés]: A tömb elemeinek összegét adja vissza: " + osszegzes() + SEP);
+        konzol(SEP + "[Összegzés]: A tömb elemeinek összegét adja vissza: " + osszegzes() + SEP);
     }
     
     public static void megszamlalasBemutatasa() {
