@@ -23,12 +23,59 @@ public class Modulzaro_0608 {
     }
     
     private static void programozoiTetelek() {
-        feltolt(3);
-
-        tomb[1] = 13;
-        kiir(1);
-        System.out.println(linKer());
+        feltolt(9);
+        kiir(3);
+        
+        osszegzesBemutatasa();
+        megszamlalasBemutatasa();
+        minHelyBemutatasa();
+        maxHelyBemutatasa();
+        kivalasztasBemutatasa();
+        eldontesEgyBemutatasa();
+        eldontesMindBemutatasa();
+        linKerMindBemutatasa();
     }
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    public static void osszegzesBemutatasa() {
+        konzol("[Összegzés]: A tömb elemeinek összegét adja vissza: " + osszegzes() + SEP);
+    }
+    
+    public static void megszamlalasBemutatasa() {
+        konzol("[Megszámlálás]: A tömbben lévő nullák számát adja vissza: " + megszamlalas() + SEP);
+    }
+    
+    public static void minHelyBemutatasa() {
+        konzol("[Minimum hely]: A tömbben lévő legkisebb érték helyét adja vissza: " + minHely() + SEP);
+    }
+    
+    public static void maxHelyBemutatasa() {
+        konzol("[Maximum hely]: A tömbben lévő legnagyobb érték helyét adja vissza: " + maxHely() + SEP);
+    }
+    
+    public static void kivalasztasBemutatasa() {
+        konzol("[Kiválasztás]: A tömbben lévő első 5-tel osztható szám helyét adja vissza: " + kivalasztas() + SEP);
+    }
+    
+    public static void eldontesEgyBemutatasa() {
+        konzol("[Eldöntés egy]: Megadja, hogy van-e tökéletesz szám a tömbben: " + (eldontesEgy() ? "van" : "nincs") + SEP);
+    }
+    
+    public static void eldontesMindBemutatasa() {
+        konzol("[Eldöntés mind]: Megadja, hogy a tömb elemi növekvő sorrendben követik-e egymást: " + (eldontesEgy() ? "igen" : "nem") + SEP);
+    }
+    
+    public static void linKerMindBemutatasa() {
+        konzol("[Lineáris keresés]: Ha van a tömbben 13-as érték, megadja a helyét, ha nincs akkor '-1' a visszatérési érték: " + linKer() + SEP);
+    }
+    
     
     
     
@@ -144,5 +191,8 @@ public class Modulzaro_0608 {
         }
     }
     
-    
+    private static void konzol(String szoveg) {
+        System.out.print(szoveg);
+    }
+   
 }
