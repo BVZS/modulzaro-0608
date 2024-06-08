@@ -25,19 +25,19 @@ public class LogikaiJatek {
     private static void lepes() {
         String valasz = "";
         while(jatekFut) {
-            konzol("Mit lépsz? (x, o) ");
+            konzol("Mit lépsz? \n[x | o] ");
             valasz = sc.nextLine();
 
             if(valasz.equals("x")) {
-                System.out.println("x-et lépsz");
                 lepesValasztva(1);
             }
             else if(valasz.equals("o")) {
-                System.out.println("o-et lépsz");
                 lepesValasztva(2);
             } 
+            else if(valasz.equals("r")) {
+                jatekReset();
+            } 
             else {
-               System.out.print("Hibás válasz. (x, o) ");
                 valasz = sc.nextLine(); 
             }
         }
@@ -47,34 +47,58 @@ public class LogikaiJatek {
     
     
     private static void lepesValasztva(int lepes) {
-        
         int lepesIndex;
         boolean lepett = false;
         
         if(lepes == 1) {
             for (int i = 0; i < palya.length; i++) {
                 if(palya[i] == 1) {
-                    if(palya[i + 1] == 0) {
+                    if(palya[i + 1] == 0) { // szimpla lépés
                         palya[i] = 0;
                         palya[i + 1] = 1;
                         lepett = true;
+                        break;
+                    }
+                    else if(palya[i + 1] == 2 && palya[i + 2] == 0) { // átugrás
+                        palya[i] = 0;
+                        palya[i + 2] = 1;
+                        lepett = true;
+                        break;
                     }
                 }
             }
         }
         else if(lepes == 2) {
-            for (int i = palya.length; i > 0; i--) {
+            for (int i = 0; i < palya.length; i++) {
                 if(palya[i] == 2) {
                     if(palya[i - 1] == 0) {
                         palya[i] = 0;
                         palya[i - 1] = 2;
                         lepett = true;
+                        break;
+                    }
+                    else if(palya[i - 1] == 1 && palya[i - 2] == 0) { // átugrás
+                        palya[i] = 0;
+                        palya[i - 2] = 2;
+                        lepett = true;
+                        break;
                     }
                 }
             }
         }
-        
-        
+        palyaMutat();
+        jatekEredmeny();
+    }
+    
+    private static void jatekEredmeny() {
+        if(palya[0] == 2 && palya[1] == 2 && palya[2] == 2 && palya[3] == 0 && palya[4] == 1 && palya[5] == 1 && palya[6] == 1) {
+            konzol("\u001B[32mNyertél, vége a játéknak!");
+            jatekFut = false;
+        }
+    }
+    
+    private static void jatekReset() {
+        palyaAlapertelmezes();
         palyaMutat();
     }
    
@@ -105,5 +129,4 @@ public class LogikaiJatek {
     private static void konzol(String szoveg) {
         System.out.print(szoveg);
     }
-   
 }
