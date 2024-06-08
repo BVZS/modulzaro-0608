@@ -24,9 +24,9 @@ public class Modulzaro_0608 {
     
     private static void programozoiTetelek() {
         feltolt(9);
+
         kiir(3);
-        
-        System.out.println(maxHely());
+        System.out.println(eldontesEgy());
     }
     
     
@@ -71,10 +71,40 @@ public class Modulzaro_0608 {
         return maxIndex;
     }
     
+    private static int kivalasztas() {
+        int i = 0;
+        while(!(tomb[i] % 5 == 0)){
+            i++;
+        }
+        return i;  
+    }
+    
+    private static boolean eldontesEgy() {
+        boolean vanTokeletes = false;
+        for (int i = 0; i < tomb.length; i++) {
+            if(tokeletesSzam(tomb[i]) == true) {
+                return tokeletesSzam(tomb[i]);
+            }
+        }
+        return vanTokeletes;
+    }
     
     
     
     
+    
+    
+    
+    
+    public static boolean tokeletesSzam(int szam) {
+        int osztoOsszeg = 0;
+        for (int i = 1; i <= szam / 2; i++) {
+            if (szam % i == 0) {
+                osztoOsszeg += i;
+            }
+        }
+        return osztoOsszeg == szam;
+    }
     
     private static int velSzam(int also, int felso) {
         return rnd.nextInt((felso - also) + 1) + also;
