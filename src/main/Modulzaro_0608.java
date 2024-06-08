@@ -23,10 +23,11 @@ public class Modulzaro_0608 {
     }
     
     private static void programozoiTetelek() {
-        feltolt(9);
+        feltolt(3);
 
-        kiir(3);
-        System.out.println(eldontesEgy());
+        tomb[1] = 13;
+        kiir(1);
+        System.out.println(linKer());
     }
     
     
@@ -89,6 +90,23 @@ public class Modulzaro_0608 {
         return vanTokeletes;
     }
     
+    public static boolean eldontesMind() {
+        for (int i = 1; i < tomb.length; i++) {
+            if (tomb[i - 1] > tomb[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static int linKer() {
+        for (int i = 0; i < tomb.length; i++) {
+            if (tomb[i] == 13) {
+                return i;
+            }
+        }
+        return -1;
+    }
     
     
     
