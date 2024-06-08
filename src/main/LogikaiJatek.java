@@ -47,23 +47,22 @@ public class LogikaiJatek {
     
     
     private static void lepesValasztva(int lepes) {
-        int lepesIndex;
-        boolean lepett = false;
-        
         if(lepes == 1) {
             for (int i = 0; i < palya.length; i++) {
                 if(palya[i] == 1) {
-                    if(palya[i + 1] == 0) { // szimpla lépés
-                        palya[i] = 0;
-                        palya[i + 1] = 1;
-                        lepett = true;
-                        break;
+                    if(i + 1 <= 6) {
+                        if(palya[i + 1] == 0) { // szimpla lépés
+                            palya[i] = 0;
+                            palya[i + 1] = 1;
+                            break;
+                        }
                     }
-                    else if(palya[i + 1] == 2 && palya[i + 2] == 0) { // átugrás
-                        palya[i] = 0;
-                        palya[i + 2] = 1;
-                        lepett = true;
-                        break;
+                    if(i + 2 <= 6) {
+                        if(palya[i + 1] == 2 && palya[i + 2] == 0) { // átugrás
+                            palya[i] = 0;
+                            palya[i + 2] = 1;
+                            break;
+                        }
                     }
                 }
             }
@@ -71,17 +70,19 @@ public class LogikaiJatek {
         else if(lepes == 2) {
             for (int i = 0; i < palya.length; i++) {
                 if(palya[i] == 2) {
-                    if(palya[i - 1] == 0) {
-                        palya[i] = 0;
-                        palya[i - 1] = 2;
-                        lepett = true;
-                        break;
+                    if(i - 1 >= 0) {
+                        if(palya[i - 1] == 0) {
+                            palya[i] = 0;
+                            palya[i - 1] = 2;
+                            break;
+                        }
                     }
-                    else if(palya[i - 1] == 1 && palya[i - 2] == 0) { // átugrás
-                        palya[i] = 0;
-                        palya[i - 2] = 2;
-                        lepett = true;
-                        break;
+                    if(i - 2 >= 0) {
+                        if(palya[i - 1] == 1 && palya[i - 2] == 0) { // átugrás
+                            palya[i] = 0;
+                            palya[i - 2] = 2;
+                            break;
+                        }
                     }
                 }
             }
